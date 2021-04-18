@@ -1,4 +1,72 @@
+@font-face {
+  font-family: "Smart Font";
+  src: url("../fonts/SmartFont.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FiraSans-ExtraBold";
+  src: url("../fonts/FiraSans-ExtraBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "AbrilFatface-Regular";
+  src: url("../fonts/AbrilFatface-Regular.ttf") format("truetype");
+}
+
 body {
   margin: 0;
+  font-family: "Smart Font", sans-serif;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+header .header-logo-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 100%;
+  background-image: url(../imgs/header-bg.png);
+  background-size: cover;
+  font-family: "FiraSans-ExtraBold";
+  font-size: 10vw;
+  text-align: center;
+  letter-spacing: .7vw;
+  color: #135b86;
+}
+
+header .header-logo-container .white-shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 60vw;
+  height: 30vh;
+  -webkit-filter: blur(3vw);
+          filter: blur(3vw);
+  background: #fff;
+}
+
+header .header-logo-container img {
+  width: 50vw;
+  z-index: 2;
 }
 /*# sourceMappingURL=styles.css.map */

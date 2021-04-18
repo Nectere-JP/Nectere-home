@@ -1,3 +1,63 @@
+@font-face {
+  font-family: "Smart Font";
+  src: url("../fonts/SmartFont.otf") format("opentype");
+}
+@font-face {
+  font-family: "FiraSans-ExtraBold";
+  src: url("../fonts/FiraSans-ExtraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "AbrilFatface-Regular";
+  src: url("../fonts/AbrilFatface-Regular.ttf") format("truetype");
+}
+
+$blue: #135b86;
+$pink: #e35471;
+$black: #222222;
+
 body {
   margin: 0;
+  font-family: "Smart Font", sans-serif;
+}
+
+header {
+  display: flex;
+  height: 100vh;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+  .header-logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+    background-image: url(../imgs/header-bg.png);
+    background-size: cover;
+
+    //ロゴが読み込まれなかったとき
+    font-family: "FiraSans-ExtraBold";
+    font-size: 10vw;
+    text-align: center;
+    letter-spacing: .7vw;
+    color: $blue;
+
+    .white-shadow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 60vw;
+      height: 30vh;
+      filter: blur(3vw);
+      background: #fff;
+    }
+
+    img {
+      width: 50vw;
+      z-index: 2;
+    }
+  }
 }
