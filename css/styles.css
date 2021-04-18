@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Smart Font";
   src: url("../fonts/SmartFont.otf") format("opentype");
@@ -13,9 +14,14 @@
   src: url("../fonts/AbrilFatface-Regular.ttf") format("truetype");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Smart Font", sans-serif;
+  color: #222222;
 }
 
 header {
@@ -111,5 +117,222 @@ header nav .nav-item::before {
 header nav .nav-item:hover {
   background: #ffffffd9;
   color: #e35471;
+}
+
+section#strengths, section#works {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+section > img {
+  width: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section .content {
+  position: relative;
+  width: 50%;
+  margin: 200px 0 130px;
+  padding-bottom: 30px;
+  border: 8px solid;
+  border-radius: 10px;
+  background: #fff;
+}
+
+section h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+section h1::before {
+  content: attr(data-eng);
+  display: block;
+  margin-bottom: -2.5vw;
+  font-family: "AbrilFatface-Regular";
+  font-weight: normal;
+  font-size: 4.4vw;
+  opacity: .25;
+}
+
+section h1.h-pink::before {
+  color: #e35471;
+}
+
+section h1.h-blue::before {
+  color: #135b86;
+}
+
+section#strengths {
+  margin-top: calc(-10vh + 10px);
+  margin-bottom: 10px;
+  -webkit-clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 100%);
+}
+
+section#strengths .content {
+  left: -5vw;
+  border-color: #e35471;
+}
+
+section#strengths ol {
+  counter-reset: index;
+  list-style: none;
+  width: 80%;
+  margin: 40px auto 0;
+  padding: 0;
+}
+
+section#strengths ol li {
+  position: relative;
+  font-size: 22px;
+  margin: 15px;
+  padding: 20px;
+  padding-left: 90px;
+  background: #f5eded;
+}
+
+section#strengths ol li::before {
+  counter-increment: index;
+  content: counter(index);
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 65px;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  background: #e35471;
+  text-align: center;
+  line-height: 65px;
+  color: #fff;
+}
+
+section#works {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+section#works .content {
+  right: -5vw;
+  border-color: #135b86;
+}
+
+section#works .works-grid {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: 240px 240px;
+      grid-template-columns: 240px 240px;
+  -ms-grid-rows: 200px;
+      grid-template-rows: 200px;
+  gap: 20px;
+}
+
+section#works .works-grid .work-item {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+section#works .works-grid .work-item img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #555;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section#works .works-grid .work-item table {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 100%;
+  height: 100%;
+  background: #ffffffe6;
+  padding: 30px 0;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+section#works .works-grid .work-item table thead {
+  font-size: 17px;
+}
+
+section#works .works-grid .work-item table tbody {
+  font-size: 14px;
+}
+
+section#works .works-grid .work-item table tbody th {
+  font-weight: normal;
+  text-align: right;
+  vertical-align: t;
+  width: 35%;
+}
+
+section#works .works-grid .work-item table tbody th::after {
+  content: "：";
+}
+
+section#works .works-grid .work-item:hover table {
+  opacity: 1;
+}
+
+section#contact {
+  margin-top: 10px;
+  padding: 20px 0 50px;
+  background-image: url(../imgs/contact-bg.png);
+}
+
+section#contact h1 {
+  color: #fff;
+}
+
+section#contact h1::before {
+  mix-blend-mode: lighten;
+  opacity: .4;
+}
+
+section#contact .btn {
+  width: 900px;
+  margin: 15px auto;
+  padding: 15px;
+  border: 5px solid #135b86;
+  border-radius: 60px;
+  background: #fff;
+}
+
+section#contact .btn span {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+section#contact .btn * {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+section#contact .btn.open {
+  border-radius: 20px;
+}
+
+section#contact .btn.open span {
+  padding: 20px 0;
 }
 /*# sourceMappingURL=styles.css.map */
