@@ -70,9 +70,32 @@
       <h1 data-eng="Contact" class="h-blue">お問い合わせ</h1>
       <div class="btn email">
         <span class="btn-title">メールでお問い合わせ</span>
+        <div class="links-container">
+          <a href="#">メールアドレスをコピー</a>
+          <a href="#">メールアプリを開く</a>
+        </div>
       </div>
       <div class="btn form">
         <span class="btn-title">専用フォームからお問い合わせ</span>
+        <form>
+          <div id="senderType" class="radio-container">
+            <input type="radio" name="senderType" value="corporation" id="corporation">
+            <label for="corporation">法人の方</label>
+            <input type="radio" name="senderType" value="individual" id="individual">
+            <label for="individual">個人の方</label>
+          </div>
+          <div id="basic-info">
+            <h2 data-index="(1/2)">基本情報</h2>
+            <label class="required" for="companyName">ご法人名</label>
+            <input type="text" id="companyName" name="companyName">
+            <label class="required" for="personName">お名前</label>
+            <input type="text" id="personName" name="personName">
+            <label class="required" for="email">メールアドレス</label>
+            <input type="email" id="email" name="email">
+            <label class="required" for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </form>
       </div>
     </section>
   </main>

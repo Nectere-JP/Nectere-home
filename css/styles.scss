@@ -13,7 +13,7 @@
 
 $blue: #135b86;
 $pink: #e35471;
-$black: #222222;
+$black: #333;
 $link: #1a0dab;
 
 html {
@@ -254,25 +254,149 @@ section {
 
     .btn {
       width: 900px;
+      max-height: 9999;
       margin: 15px auto;
-      padding: 15px;
+      padding: 10px 0 35px;
       border: 5px solid $blue;
-      border-radius: 60px;
+      border-radius: 20px;
       background: #fff;
+      * { transition: all .2s; }
+      
       span {
         display: block;
+        padding: 25px;
         font-size: 20px;
+        font-weight: bold;
         text-align: center;
         cursor: pointer;
       }
-      * { transition: all .2s; }
-
-      &.open {
-        border-radius: 20px;
-        span {
-          padding: 20px 0;
+      .links-container {
+        display: flex;
+        justify-content: center;
+        a {
+          position: relative;
+          margin: 0 10px;
+          padding: 10px 50px 10px 20px;
+          border-radius: 35px;
+          background: #C0D8E6;
+          font-size: 12px;
+          text-decoration: none;
+          color: $blue;
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 10px;
+            width: 15px;
+            height: 15px;
+            margin: auto;
+            background-image: url(../imgs/angle-right.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
         }
       }
+      form {
+        width: 80%;
+        margin: 0 auto;
+        .radio-container {
+          display: flex;
+          justify-content: center;
+          input[type="radio"]{ display: none; }
+          label {
+            box-sizing: border-box;
+            width: 50%;
+            padding: 7px;
+            border: 3px solid $blue;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+            &:first-of-type { border-radius: 8px 0 0 8px; }
+            &:last-of-type { border-radius: 0 8px 8px 0;  margin-left: -3px;}
+          }
+          input:checked + label {
+            background: $blue;
+            color: #fff;
+          }
+        }
+
+        h2 {
+          margin-top: 30px;
+          font-weight: normal;
+          font-size: 22px;
+          text-align: center;
+          &::before {
+            content: attr(data-index);
+            font-size: 12px;
+            margin-right: 5px;
+          }
+        }
+
+        #basic-info {
+          &.closed {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+            line-height: 0;
+            padding: 0;
+          }
+
+          &.individual input#companyName,
+          &.individual label[for="companyName"] {
+            display: none;
+          }
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          margin: 8px 0 15px 20px;
+          padding: 10px 25px;
+          border: 2px solid $black;
+          border-radius: 45px;
+          font-size: 15px;
+        }
+
+        label {
+          font-size: 18px;
+          vertical-align: middle;
+          &.required::after {
+            content: "必須";
+            display: inline-block;
+            margin-left: 10px;
+            padding: 4px 20px;
+            background: #AC0808;
+            font-size: 10px;
+            line-height: 1.2;
+            color: #fff;
+          }
+        }
+      }
+
+      &.closed { padding: 20px 0; }
+      &.closed,
+      .closed {
+        border-radius: 60px;
+        *:not(span),
+        *::before,
+        *::after{
+          margin: 0 !important;
+          padding: 0 !important;
+          border: 0 !important;
+          line-height: 0;
+          font-size: 0 !important;
+          opacity: 0;
+          cursor: default;
+          pointer-events: none;
+        }
+        span { padding: 0; }
+      }
+
     }
   }
 }

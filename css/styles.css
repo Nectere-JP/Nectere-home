@@ -21,7 +21,7 @@ html {
 body {
   margin: 0;
   font-family: "Smart Font", sans-serif;
-  color: #222222;
+  color: #333;
 }
 
 header {
@@ -308,18 +308,12 @@ section#contact h1::before {
 
 section#contact .btn {
   width: 900px;
+  max-height: 9999;
   margin: 15px auto;
-  padding: 15px;
+  padding: 10px 0 35px;
   border: 5px solid #135b86;
-  border-radius: 60px;
+  border-radius: 20px;
   background: #fff;
-}
-
-section#contact .btn span {
-  display: block;
-  font-size: 20px;
-  text-align: center;
-  cursor: pointer;
 }
 
 section#contact .btn * {
@@ -327,11 +321,176 @@ section#contact .btn * {
   transition: all .2s;
 }
 
-section#contact .btn.open {
-  border-radius: 20px;
+section#contact .btn span {
+  display: block;
+  padding: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
 }
 
-section#contact .btn.open span {
+section#contact .btn .links-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section#contact .btn .links-container a {
+  position: relative;
+  margin: 0 10px;
+  padding: 10px 50px 10px 20px;
+  border-radius: 35px;
+  background: #C0D8E6;
+  font-size: 12px;
+  text-decoration: none;
+  color: #135b86;
+}
+
+section#contact .btn .links-container a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  margin: auto;
+  background-image: url(../imgs/angle-right.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+section#contact .btn form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+section#contact .btn form .radio-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section#contact .btn form .radio-container input[type="radio"] {
+  display: none;
+}
+
+section#contact .btn form .radio-container label {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50%;
+  padding: 7px;
+  border: 3px solid #135b86;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+section#contact .btn form .radio-container label:first-of-type {
+  border-radius: 8px 0 0 8px;
+}
+
+section#contact .btn form .radio-container label:last-of-type {
+  border-radius: 0 8px 8px 0;
+  margin-left: -3px;
+}
+
+section#contact .btn form .radio-container input:checked + label {
+  background: #135b86;
+  color: #fff;
+}
+
+section#contact .btn form h2 {
+  margin-top: 30px;
+  font-weight: normal;
+  font-size: 22px;
+  text-align: center;
+}
+
+section#contact .btn form h2::before {
+  content: attr(data-index);
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+section#contact .btn form #basic-info.closed {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  padding: 0;
+}
+
+section#contact .btn form #basic-info.individual input#companyName,
+section#contact .btn form #basic-info.individual label[for="companyName"] {
+  display: none;
+}
+
+section#contact .btn form input[type="text"],
+section#contact .btn form input[type="email"],
+section#contact .btn form input[type="tel"] {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  margin: 8px 0 15px 20px;
+  padding: 10px 25px;
+  border: 2px solid #333;
+  border-radius: 45px;
+  font-size: 15px;
+}
+
+section#contact .btn form label {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+section#contact .btn form label.required::after {
+  content: "必須";
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 20px;
+  background: #AC0808;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+section#contact .btn.closed {
   padding: 20px 0;
+}
+
+section#contact .btn.closed,
+section#contact .btn .closed {
+  border-radius: 60px;
+}
+
+section#contact .btn.closed *:not(span),
+section#contact .btn.closed *::before,
+section#contact .btn.closed *::after,
+section#contact .btn .closed *:not(span),
+section#contact .btn .closed *::before,
+section#contact .btn .closed *::after {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  line-height: 0;
+  font-size: 0 !important;
+  opacity: 0;
+  cursor: default;
+  pointer-events: none;
+}
+
+section#contact .btn.closed span,
+section#contact .btn .closed span {
+  padding: 0;
 }
 /*# sourceMappingURL=styles.css.map */
