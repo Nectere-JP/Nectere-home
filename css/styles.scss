@@ -45,7 +45,7 @@ header {
     .white-shadow {
       position: absolute;
       top: 0;
-      bottom: 0;
+      bottom: 5vh;
       left: 0;
       right: 0;
       margin: auto;
@@ -58,6 +58,42 @@ header {
     img {
       width: 50vw;
       z-index: 2;
+      margin-bottom: 5vh;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 24vw;
+    padding-bottom: 13vh;
+    background: $pink;
+
+    .nav-item {
+      display: block;
+      padding: 2vw 0;
+      margin: 0.8vw 0;
+      font-size: 2.2vw;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      color: #fff;
+
+      &::before {
+        content: attr(data-eng);
+        display: block;
+        margin-bottom: -2.5vw;
+        font-family: "AbrilFatface-Regular";
+        font-weight: normal;
+        font-size: 4.4vw;
+        opacity: .25;
+      }
+
+      &:hover {
+        background: #ffffffd9;
+        color: $pink;
+      }
     }
   }
 }

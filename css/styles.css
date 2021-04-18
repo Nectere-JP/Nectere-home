@@ -54,7 +54,7 @@ header .header-logo-container {
 header .header-logo-container .white-shadow {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 5vh;
   left: 0;
   right: 0;
   margin: auto;
@@ -68,5 +68,48 @@ header .header-logo-container .white-shadow {
 header .header-logo-container img {
   width: 50vw;
   z-index: 2;
+  margin-bottom: 5vh;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 24vw;
+  padding-bottom: 13vh;
+  background: #e35471;
+}
+
+header nav .nav-item {
+  display: block;
+  padding: 2vw 0;
+  margin: 0.8vw 0;
+  font-size: 2.2vw;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+}
+
+header nav .nav-item::before {
+  content: attr(data-eng);
+  display: block;
+  margin-bottom: -2.5vw;
+  font-family: "AbrilFatface-Regular";
+  font-weight: normal;
+  font-size: 4.4vw;
+  opacity: .25;
+}
+
+header nav .nav-item:hover {
+  background: #ffffffd9;
+  color: #e35471;
 }
 /*# sourceMappingURL=styles.css.map */
