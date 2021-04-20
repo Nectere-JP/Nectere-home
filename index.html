@@ -68,32 +68,52 @@
     </section>
     <section id="contact">
       <h1 data-eng="Contact" class="h-blue">お問い合わせ</h1>
-      <div class="btn email">
+      <div class="btn email closed">
         <span class="btn-title">メールでお問い合わせ</span>
         <div class="links-container">
           <a href="#">メールアドレスをコピー</a>
           <a href="#">メールアプリを開く</a>
         </div>
       </div>
-      <div class="btn form">
+      <div class="btn form closed">
         <span class="btn-title">専用フォームからお問い合わせ</span>
-        <form>
-          <div id="senderType" class="radio-container">
-            <input type="radio" name="senderType" value="corporation" id="corporation">
+        <form name="contact">
+          <div id="sender-type" class="radio-container">
+            <input type="radio" name="sender-type" value="corporation" id="corporation">
             <label for="corporation">法人の方</label>
-            <input type="radio" name="senderType" value="individual" id="individual">
+            <input type="radio" name="sender-type" value="individual" id="individual">
             <label for="individual">個人の方</label>
           </div>
-          <div id="basic-info">
+          <div id="basic-info" class="closed">
             <h2 data-index="(1/2)">基本情報</h2>
-            <label class="required" for="companyName">ご法人名</label>
-            <input type="text" id="companyName" name="companyName">
+            <label class="required" for="company-name">ご法人名</label>
+            <input type="text" id="company-name" name="company-name" required disabled>
             <label class="required" for="personName">お名前</label>
-            <input type="text" id="personName" name="personName">
+            <input type="text" id="personName" name="personName" required>
             <label class="required" for="email">メールアドレス</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
             <label class="required" for="phone">電話番号</label>
-            <input type="tel" id="phone" name="phone">
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div id="contact-type" class="radio-container closed">
+            <input type="radio" name="contact-type" value="order" id="order">
+            <label for="order">発注のご相談</label>
+            <input type="radio" name="contact-type" value="other-iquiries" id="other-iquiries">
+            <label for="other-iquiries">その他のお問い合わせ</label>
+          </div>
+          <div id="iquiry-details" class="closed">
+            <h2 data-index="(2/2)">お問い合わせ内容</h2>
+            <label class="optional" for="budget-minimum">予算</label>  
+            <div id="budget-container">
+              <input type="number" id="budget-minimum" name="budget-minimum">
+              <p>円　
+                〜</p>
+              <input type="number" id="budget-maximum" name="budget-maximum">
+              <p>円</p>
+            </div>
+            <label for="iquiry-content" class="required">お問い合わせ内容</label>
+            <textarea name="iquiry-content" id="iquiry-content" cols="30" rows="10"></textarea>
+            <!-- TODO: jsでrequiredにする -->
           </div>
         </form>
       </div>

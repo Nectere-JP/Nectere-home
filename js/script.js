@@ -7,15 +7,55 @@
   })
 
   //radioが選択されたらフォームを表示する
-  const showForm = (name, target) => {
-    let className = document.querySelector(`input:checked[name=${name}]`) ? document.querySelector(`input:checked[name=${name}]`).value : "closed";
-    document.getElementById(target).classList = className;
-    Array.from(document.getElementsByName(name)).forEach(el => {
-      el.addEventListener("click", () => {
-        document.getElementById(target).classList = el.value;
+  const hideSubTarget = (mainTarget, subTargets) => {
+    if(document.getElementById(mainTarget).classList.contains("closed")) {
+      subTargets.forEach(el => {
+        document.getElementById(el).classList.add("closed")
+      })
+    } else {
+      // subTargets.forEach(el => {
+      //   document.getElementById(el).classList.remove("closed")
+      // })
+    }
+  }
+
+  const showForm = (type, trigger, target, subtarget, disabled={}) => {
+    
+    if (type === "radio") {
+      document.getElementById(target).classList = (Array.from(document.getElementsByName(trigger)).find(el => el.checked) || "").value || "closed";
+      hideSubTarget(target, subtarget)
+      Array.from(document.getElementsByName(trigger)).forEach(el => {
+        el.addEventListener("click", e => {
+          document.getElementById(target).classList = e.target.value || "closed";
+          document.getElementById(disabled.target).disabled = e.target.value === disabled.trriger;
+          hideSubTarget(target, subtarget)
+        });
       });
-    });
+    } else {
+      const inputItems = Array.from(document.getElementById("basic-info").getElementsByTagName("input"));
+      inputItems.forEach(el => {
+        if(inputItems.some(el => !el.checkValidity())) {
+          document.getElementById(target).classList.add("closed");
+        } else {
+          document.getElementById(target).classList.remove("closed");
+        }
+        hideSubTarget(target, subtarget)
+        // document.getElementsByName(target).forEach(t => { t.disabled = document.getElementById(target).classList.contains("closed"); });
+
+        el.addEventListener("change", () => {
+          if(inputItems.some(el => !el.checkValidity())) {
+            document.getElementById(target).classList.add("closed");
+          } else {
+            document.getElementById(target).classList.remove("closed");
+          }
+          hideSubTarget(target, subtarget)
+        })
+      })
+    }
   }
   
-  showForm("senderType", "basic-info");
+
+  showForm("radio", "sender-type", "basic-info", ["contact-type", "iquiry-details"], {trriger: "individual", target: "company-name"});
+  showForm("radio", "contact-type", "iquiry-details", [], {trriger: "other-iquiries", target: "budget-container"});
+  showForm("form", "basic-info", "contact-type", ["iquiry-details"]);
 })();

@@ -135,7 +135,7 @@ section {
       margin-bottom: -2.5vw;
       font-family: "AbrilFatface-Regular";
       font-weight: normal;
-      font-size: 4.4vw;
+      font-size: 55px;
       opacity: .25;
     }
     &.h-pink::before { color: $pink; }
@@ -301,9 +301,12 @@ section {
       form {
         width: 80%;
         margin: 0 auto;
+
         .radio-container {
           display: flex;
           justify-content: center;
+          &#contact-type:not(.closed) { margin-top: 70px; }
+  
           input[type="radio"]{ display: none; }
           label {
             box-sizing: border-box;
@@ -334,7 +337,7 @@ section {
           }
         }
 
-        #basic-info {
+        #basic-info {      
           &.closed {
             margin: 0;
             padding: 0;
@@ -343,37 +346,86 @@ section {
             padding: 0;
           }
 
-          &.individual input#companyName,
-          &.individual label[for="companyName"] {
+          &.individual input#company-name,
+          &.individual label[for="company-name"] {
             display: none;
           }
         }
 
+        #iquiry-details {
+          &.closed {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+            line-height: 0;
+            padding: 0;
+          }
+
+          #budget-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            input { width: 42%; }
+            input:last-of-type { margin-left: 0; }
+            p { flex-grow: 1; text-align: center;}
+          }
+
+          &.other-iquiries #budget-container,
+          &.other-iquiries label[for="budget-minimum"] { display: none; }
+        }
+
         input[type="text"],
         input[type="email"],
-        input[type="tel"] {
+        input[type="tel"],
+        input[type="number"],
+        textarea {
           display: block;
           box-sizing: border-box;
-          width: 100%;
+          width: calc(100% - 20px);
           margin: 8px 0 15px 20px;
           padding: 10px 25px;
           border: 2px solid $black;
           border-radius: 45px;
           font-size: 15px;
+            box-shadow: 0 0 5px #1245B1;
+          &:focus {
+            // border-color: #1245B1;
+            box-shadow: 0 0 11px #1245B1;
+            outline: none;
+          }
+          &:invalid {
+            box-shadow: 0 0 4px #A50;
+            &:focus {
+              box-shadow: 0 0 11px #A50;
+            }
+          }
+        }
+
+        textarea {
+          border-radius: 10px;
         }
 
         label {
           font-size: 18px;
           vertical-align: middle;
-          &.required::after {
-            content: "必須";
+          &.required::after,
+          &.optional::after {
             display: inline-block;
+            position: relative;
+            top: -2px;
             margin-left: 10px;
             padding: 4px 20px;
-            background: #AC0808;
             font-size: 10px;
             line-height: 1.2;
             color: #fff;
+          }
+          &.required::after {
+            content: "必須";
+            background: #AC0808;
+          }
+          &.optional::after {
+            content: "任意";
+            background: #1a0dab;
           }
         }
       }

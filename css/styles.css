@@ -155,7 +155,7 @@ section h1::before {
   margin-bottom: -2.5vw;
   font-family: "AbrilFatface-Regular";
   font-weight: normal;
-  font-size: 4.4vw;
+  font-size: 55px;
   opacity: .25;
 }
 
@@ -379,6 +379,10 @@ section#contact .btn form .radio-container {
           justify-content: center;
 }
 
+section#contact .btn form .radio-container#contact-type:not(.closed) {
+  margin-top: 70px;
+}
+
 section#contact .btn form .radio-container input[type="radio"] {
   display: none;
 }
@@ -429,23 +433,98 @@ section#contact .btn form #basic-info.closed {
   padding: 0;
 }
 
-section#contact .btn form #basic-info.individual input#companyName,
-section#contact .btn form #basic-info.individual label[for="companyName"] {
+section#contact .btn form #basic-info.individual input#company-name,
+section#contact .btn form #basic-info.individual label[for="company-name"] {
+  display: none;
+}
+
+section#contact .btn form #iquiry-details.closed {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  padding: 0;
+}
+
+section#contact .btn form #iquiry-details #budget-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section#contact .btn form #iquiry-details #budget-container input {
+  width: 42%;
+}
+
+section#contact .btn form #iquiry-details #budget-container input:last-of-type {
+  margin-left: 0;
+}
+
+section#contact .btn form #iquiry-details #budget-container p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+
+section#contact .btn form #iquiry-details.other-iquiries #budget-container,
+section#contact .btn form #iquiry-details.other-iquiries label[for="budget-minimum"] {
   display: none;
 }
 
 section#contact .btn form input[type="text"],
 section#contact .btn form input[type="email"],
-section#contact .btn form input[type="tel"] {
+section#contact .btn form input[type="tel"],
+section#contact .btn form input[type="number"],
+section#contact .btn form textarea {
   display: block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
+  width: calc(100% - 20px);
   margin: 8px 0 15px 20px;
   padding: 10px 25px;
   border: 2px solid #333;
   border-radius: 45px;
   font-size: 15px;
+  -webkit-box-shadow: 0 0 5px #1245B1;
+          box-shadow: 0 0 5px #1245B1;
+}
+
+section#contact .btn form input[type="text"]:focus,
+section#contact .btn form input[type="email"]:focus,
+section#contact .btn form input[type="tel"]:focus,
+section#contact .btn form input[type="number"]:focus,
+section#contact .btn form textarea:focus {
+  -webkit-box-shadow: 0 0 11px #1245B1;
+          box-shadow: 0 0 11px #1245B1;
+  outline: none;
+}
+
+section#contact .btn form input[type="text"]:invalid,
+section#contact .btn form input[type="email"]:invalid,
+section#contact .btn form input[type="tel"]:invalid,
+section#contact .btn form input[type="number"]:invalid,
+section#contact .btn form textarea:invalid {
+  -webkit-box-shadow: 0 0 4px #A50;
+          box-shadow: 0 0 4px #A50;
+}
+
+section#contact .btn form input[type="text"]:invalid:focus,
+section#contact .btn form input[type="email"]:invalid:focus,
+section#contact .btn form input[type="tel"]:invalid:focus,
+section#contact .btn form input[type="number"]:invalid:focus,
+section#contact .btn form textarea:invalid:focus {
+  -webkit-box-shadow: 0 0 11px #A50;
+          box-shadow: 0 0 11px #A50;
+}
+
+section#contact .btn form textarea {
+  border-radius: 10px;
 }
 
 section#contact .btn form label {
@@ -453,15 +532,25 @@ section#contact .btn form label {
   vertical-align: middle;
 }
 
-section#contact .btn form label.required::after {
-  content: "必須";
+section#contact .btn form label.required::after, section#contact .btn form label.optional::after {
   display: inline-block;
+  position: relative;
+  top: -2px;
   margin-left: 10px;
   padding: 4px 20px;
-  background: #AC0808;
   font-size: 10px;
   line-height: 1.2;
   color: #fff;
+}
+
+section#contact .btn form label.required::after {
+  content: "必須";
+  background: #AC0808;
+}
+
+section#contact .btn form label.optional::after {
+  content: "任意";
+  background: #1a0dab;
 }
 
 section#contact .btn.closed {
