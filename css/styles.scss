@@ -135,7 +135,7 @@ section {
       margin-bottom: -2.5vw;
       font-family: "AbrilFatface-Regular";
       font-weight: normal;
-      font-size: 55px;
+      font-size: 58px;
       opacity: .25;
     }
     &.h-pink::before { color: $pink; }
@@ -372,6 +372,42 @@ section {
 
           &.other-iquiries #budget-container,
           &.other-iquiries label[for="budget-minimum"] { display: none; }
+        }
+
+        #submit {
+          text-align: center;
+
+          input[type="checkbox"] {
+            display: none;
+            & + label {
+              display: inline-block;
+              position: relative;
+              margin: 20px 0 30px;
+              padding-left: 1.5rem;
+              text-align: center;
+              &::before {
+                content: "";
+                margin: 0 auto;
+                position: absolute;
+                left: 0;
+                width: 1rem;
+                height: 1rem;
+                border: 2px solid $black;
+                border-radius: 3px;
+              }
+            }
+          }
+
+          input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: 0;
+            border-radius: 52px;
+            background: $blue;
+            font-size: 18px;
+            color: #fff;
+          }
         }
 
         input[type="text"],

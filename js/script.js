@@ -10,6 +10,7 @@
   const hideSubTarget = (mainTarget, subTargets) => {
     if(document.getElementById(mainTarget).classList.contains("closed")) {
       subTargets.forEach(el => {
+        console.log(el);
         document.getElementById(el).classList.add("closed")
       })
     } else {
@@ -32,7 +33,8 @@
         });
       });
     } else {
-      const inputItems = Array.from(document.getElementById("basic-info").getElementsByTagName("input"));
+      const inputItems = Array.from(document.getElementById(trigger).getElementsByTagName("input"));
+      inputItems.push(...Array.from(document.getElementById(trigger).getElementsByTagName("textarea")));
       inputItems.forEach(el => {
         if(inputItems.some(el => !el.checkValidity())) {
           document.getElementById(target).classList.add("closed");
@@ -40,7 +42,6 @@
           document.getElementById(target).classList.remove("closed");
         }
         hideSubTarget(target, subtarget)
-        // document.getElementsByName(target).forEach(t => { t.disabled = document.getElementById(target).classList.contains("closed"); });
 
         el.addEventListener("change", () => {
           if(inputItems.some(el => !el.checkValidity())) {
@@ -56,6 +57,7 @@
   
 
   showForm("radio", "sender-type", "basic-info", ["contact-type", "iquiry-details"], {trriger: "individual", target: "company-name"});
-  showForm("radio", "contact-type", "iquiry-details", [], {trriger: "other-iquiries", target: "budget-container"});
+  showForm("radio", "contact-type", "iquiry-details", ["submit"], {trriger: "other-iquiries", target: "budget-container"});
+  showForm("form", "iquiry-details", "submit", []);
   showForm("form", "basic-info", "contact-type", ["iquiry-details"]);
 })();
