@@ -33,6 +33,15 @@ header {
           clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+@media (max-width: 500px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 header .header-logo-container {
   position: relative;
   display: -webkit-box;
@@ -65,7 +74,7 @@ header .header-logo-container .white-shadow {
   right: 0;
   margin: auto;
   width: 60vw;
-  height: 30vh;
+  height: 15vw;
   -webkit-filter: blur(3vw);
           filter: blur(3vw);
   background: #fff;
@@ -93,6 +102,13 @@ header nav {
   background: #e35471;
 }
 
+@media (max-width: 500px) {
+  header nav {
+    width: 100vw;
+    padding-bottom: 3vw;
+  }
+}
+
 header nav .nav-item {
   display: block;
   padding: 2vw 0;
@@ -104,6 +120,12 @@ header nav .nav-item {
   color: #fff;
 }
 
+@media (max-width: 500px) {
+  header nav .nav-item {
+    font-size: 5vw;
+  }
+}
+
 header nav .nav-item::before {
   content: attr(data-eng);
   display: block;
@@ -112,6 +134,13 @@ header nav .nav-item::before {
   font-weight: normal;
   font-size: 4.4vw;
   opacity: .25;
+}
+
+@media (max-width: 500px) {
+  header nav .nav-item::before {
+    font-size: 10vw;
+    margin-bottom: -6.5vw;
+  }
 }
 
 header nav .nav-item:hover {
@@ -128,10 +157,25 @@ section#strengths, section#works {
           align-items: stretch;
 }
 
+@media (max-width: 800px) {
+  section#strengths, section#works {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 section > img {
   width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  section > img {
+    width: 100%;
+  }
 }
 
 section .content {
@@ -142,6 +186,27 @@ section .content {
   border: 8px solid;
   border-radius: 10px;
   background: #fff;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  section .content {
+    width: 70%;
+  }
+}
+
+@media (max-width: 800px) {
+  section .content {
+    width: 90%;
+    margin: -200px auto 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  section .content {
+    margin-top: -100px;
+  }
 }
 
 section h1 {
@@ -149,14 +214,26 @@ section h1 {
   text-align: center;
 }
 
+@media (max-width: 500px) {
+  section h1 {
+    font-size: 24px;
+  }
+}
+
 section h1::before {
   content: attr(data-eng);
   display: block;
-  margin-bottom: -2.5vw;
+  margin-bottom: -32px;
   font-family: "AbrilFatface-Regular";
   font-weight: normal;
   font-size: 58px;
   opacity: .25;
+}
+
+@media (max-width: 500px) {
+  section h1::before {
+    font-size: 50px;
+  }
 }
 
 section h1.h-pink::before {
@@ -179,6 +256,12 @@ section#strengths .content {
   border-color: #e35471;
 }
 
+@media (max-width: 800px) {
+  section#strengths .content {
+    left: 0;
+  }
+}
+
 section#strengths ol {
   counter-reset: index;
   list-style: none;
@@ -194,6 +277,12 @@ section#strengths ol li {
   padding: 20px;
   padding-left: 90px;
   background: #f5eded;
+}
+
+@media (max-width: 500px) {
+  section#strengths ol li {
+    font-size: 16px;
+  }
 }
 
 section#strengths ol li::before {
@@ -221,9 +310,24 @@ section#works {
           flex-direction: row-reverse;
 }
 
+@media (max-width: 800px) {
+  section#works {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 section#works .content {
   right: -5vw;
   border-color: #135b86;
+}
+
+@media (max-width: 800px) {
+  section#works .content {
+    left: 0;
+  }
 }
 
 section#works .works-grid {
@@ -237,6 +341,15 @@ section#works .works-grid {
   -ms-grid-rows: 200px;
       grid-template-rows: 200px;
   gap: 20px;
+}
+
+@media (max-width: 650px) {
+  section#works .works-grid {
+    -ms-grid-columns: 240px;
+        grid-template-columns: 240px;
+    -ms-grid-rows: 200px 200px;
+        grid-template-rows: 200px 200px;
+  }
 }
 
 section#works .works-grid .work-item {
@@ -321,6 +434,12 @@ section#contact .btn * {
   transition: all .2s;
 }
 
+@media (max-width: 1000px) {
+  section#contact .btn {
+    width: 80%;
+  }
+}
+
 section#contact .btn span {
   display: block;
   padding: 25px;
@@ -328,6 +447,12 @@ section#contact .btn span {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  section#contact .btn span {
+    font-size: 16px;
+  }
 }
 
 section#contact .btn .links-container {
@@ -472,6 +597,16 @@ section#contact .btn form #iquiry-details #budget-container p {
   text-align: center;
 }
 
+@media (max-width: 500px) {
+  section#contact .btn form #iquiry-details #budget-container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  section#contact .btn form #iquiry-details #budget-container input {
+    width: 80%;
+  }
+}
+
 section#contact .btn form #iquiry-details.other-iquiries #budget-container,
 section#contact .btn form #iquiry-details.other-iquiries label[for="budget-minimum"] {
   display: none;
@@ -502,6 +637,17 @@ section#contact .btn form #submit input[type="checkbox"] + label::before {
   height: 1rem;
   border: 2px solid #333;
   border-radius: 3px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+section#contact .btn form #submit input[type="checkbox"]:checked + label::before {
+  height: .5rem;
+  border-color: green;
+  border-top: 0;
+  border-right: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 section#contact .btn form #submit input[type="submit"] {
@@ -531,6 +677,17 @@ section#contact .btn form textarea {
   font-size: 15px;
   -webkit-box-shadow: 0 0 5px #1245B1;
           box-shadow: 0 0 5px #1245B1;
+}
+
+@media (max-width: 500px) {
+  section#contact .btn form input[type="text"],
+  section#contact .btn form input[type="email"],
+  section#contact .btn form input[type="tel"],
+  section#contact .btn form input[type="number"],
+  section#contact .btn form textarea {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 section#contact .btn form input[type="text"]:focus,

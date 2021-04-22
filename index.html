@@ -106,16 +106,16 @@
             <label class="optional" for="budget-minimum">予算</label>  
             <div id="budget-container">
               <input type="number" id="budget-minimum" name="budget-minimum">
-              <p>円 〜 </p>
+              <p>円〜</p>
               <input type="number" id="budget-maximum" name="budget-maximum">
-              <p>円</p>
+              <p>円　</p>
             </div>
             <label for="iquiry-content" class="required">お問い合わせ内容（20字以上）</label>
             <textarea name="iquiry-content" id="iquiry-content" cols="30" rows="10" minlength="20" required></textarea>
           </div>
           <div id="submit" class="closed">
             <input type="checkbox" name="agree" id="agree">
-            <label for="agree"><a href="#">利用規約</a>に同意する</label>
+            <label for="agree" required><a href="#">利用規約</a>に同意する</label>
             <input type="submit" value="送信">
           </div>
         </form>

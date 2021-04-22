@@ -27,6 +27,7 @@ body {
 
 header {
   display: flex;
+  @media (max-width: 500px){ flex-direction: column-reverse; }
   height: 100vh;
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 
@@ -55,7 +56,7 @@ header {
       right: 0;
       margin: auto;
       width: 60vw;
-      height: 30vh;
+      height: 15vw;
       filter: blur(3vw);
       background: #fff;
     }
@@ -75,6 +76,8 @@ header {
     padding-bottom: 13vh;
     background: $pink;
 
+    @media (max-width: 500px){ width: 100vw; padding-bottom: 3vw;}
+
     .nav-item {
       display: block;
       padding: 2vw 0;
@@ -84,6 +87,7 @@ header {
       text-decoration: none;
       text-align: center;
       color: #fff;
+      @media (max-width: 500px){ font-size: 5vw; }
 
       &::before {
         content: attr(data-eng);
@@ -92,6 +96,7 @@ header {
         font-family: "AbrilFatface-Regular";
         font-weight: normal;
         font-size: 4.4vw;
+        @media (max-width: 500px){ font-size: 10vw; margin-bottom: -6.5vw;}
         opacity: .25;
       }
 
@@ -108,11 +113,13 @@ section {
   &#works {
     display: flex;
     align-items: stretch;
+    @media (max-width: 800px){ flex-direction: column;}
   }
 
   & > img {
     width: 50%;
     object-fit: cover;
+    @media (max-width: 800px){ width: 100%;}
   }
 
   .content {
@@ -123,20 +130,26 @@ section {
     border: 8px solid;
     border-radius: 10px;
     background: #fff;
+    flex-shrink: 0;
+    @media (max-width: 1200px){ width: 70%; }
+    @media (max-width: 800px){ width: 90%; margin: -200px auto 100px;}
+    @media (max-width: 500px){ margin-top: -100px; }
   }
   
   h1 {
     font-size: 28px;
     text-align: center;
+    @media (max-width: 500px){ font-size: 24px; }
 
     &::before {
       content: attr(data-eng);
       display: block;
-      margin-bottom: -2.5vw;
+      margin-bottom: -32px;
       font-family: "AbrilFatface-Regular";
       font-weight: normal;
       font-size: 58px;
       opacity: .25;
+      @media (max-width: 500px){ font-size: 50px; }
     }
     &.h-pink::before { color: $pink; }
     &.h-blue::before { color: $blue; }
@@ -146,7 +159,11 @@ section {
     margin-top: calc(-10vh + 10px);
     margin-bottom: 10px;
     clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 100%);
-    .content { left: -5vw; border-color: $pink;}
+    .content { 
+      left: -5vw;
+      border-color: $pink; 
+      @media (max-width: 800px){ left: 0; }
+    }
 
     ol {
       counter-reset: index;
@@ -162,6 +179,7 @@ section {
         padding: 20px;
         padding-left: 90px;
         background: #f5eded;
+        @media (max-width: 500px){ font-size: 16px; }
         &::before {
           counter-increment: index;
           content: counter(index);
@@ -184,7 +202,12 @@ section {
 
   &#works {
     flex-direction: row-reverse;
-    .content { right: -5vw; border-color: $blue;}
+    @media (max-width: 800px){ flex-direction: column; }
+    .content {
+      right: -5vw;
+      border-color: $blue;
+      @media (max-width: 800px){ left: 0; }
+    }
 
 
     .works-grid {
@@ -193,6 +216,7 @@ section {
       grid-template-columns: 240px 240px;
       grid-template-rows: 200px;
       gap: 20px;
+      @media (max-width: 650px){ grid-template-columns: 240px; grid-template-rows: 200px 200px;}
 
       .work-item {
         position: relative;
@@ -261,11 +285,13 @@ section {
       border-radius: 20px;
       background: #fff;
       * { transition: all .2s; }
+      @media (max-width: 1000px){ width: 80%; }
       
       span {
         display: block;
         padding: 25px;
         font-size: 20px;
+        @media (max-width: 500px){ font-size: 16px; }
         font-weight: bold;
         text-align: center;
         cursor: pointer;
@@ -368,6 +394,10 @@ section {
             input { width: 42%; }
             input:last-of-type { margin-left: 0; }
             p { flex-grow: 1; text-align: center;}
+            @media (max-width: 500px){
+              flex-wrap: wrap;
+              input { width: 80%; }
+            }
           }
 
           &.other-iquiries #budget-container,
@@ -376,7 +406,6 @@ section {
 
         #submit {
           text-align: center;
-
           input[type="checkbox"] {
             display: none;
             & + label {
@@ -394,7 +423,15 @@ section {
                 height: 1rem;
                 border: 2px solid $black;
                 border-radius: 3px;
+                transition: all .2s;
               }
+            }
+            &:checked + label::before{
+              height: .5rem;
+              border-color: green;
+              border-top: 0;
+              border-right: 0;
+              transform: rotate(-45deg);
             }
           }
 
@@ -423,7 +460,9 @@ section {
           border: 2px solid $black;
           border-radius: 45px;
           font-size: 15px;
-            box-shadow: 0 0 5px #1245B1;
+          box-shadow: 0 0 5px #1245B1;
+          @media (max-width: 500px){ margin-left: 0; width: 100%; }
+
           &:focus {
             // border-color: #1245B1;
             box-shadow: 0 0 11px #1245B1;

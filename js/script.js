@@ -60,4 +60,6 @@
   showForm("radio", "contact-type", "iquiry-details", ["submit"], {trriger: "other-iquiries", target: "budget-container"});
   showForm("form", "iquiry-details", "submit", []);
   showForm("form", "basic-info", "contact-type", ["iquiry-details"]);
+
+  // document.forms["contact"].
 })();
